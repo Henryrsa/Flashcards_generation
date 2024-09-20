@@ -1,0 +1,195 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 15px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Buttons */
+.start-btn, .next-btn, .finish-btn, .back-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-btn:hover, .next-btn:hover, .finish-btn:hover, .back-btn:hover {
+    background-color: #0056b3;
+}
+
+a.finish-btn {
+    background-color: #28a745;
+}
+
+a.finish-btn:hover {
+    background-color: #218838;
+}
+
+a.back-btn {
+    background-color: #6c757d;
+}
+
+a.back-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Flashcard styling */
+.flashcard {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for flashcard */
+.flashcard:hover {
+    transform: scale(1.02);
+}
+
+.flashcard p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+input[type="text"] {
+    padding: 12px;
+    width: 80%;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+/* Feedback message */
+.feedback-msg {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.success {
+    color: white;
+    background-color: green;
+}
+
+.danger {
+    color: white;
+    background-color: red;
+}
+
+/* Layout for buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.buttons a, .buttons button {
+    width: 160px;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+a.finish-btn {
+    background-color: #28a745;
+}
+
+a.finish-btn:hover {
+    background-color: #218838;
+}
+
+/* Progress Tracker */
+.progress-tracking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Space between progress items */
+}
+
+.progress-item {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.progress-item.answered {
+    background-color: #28a745;
+}
+
+.progress-item:hover {
+    background-color: #0056b3;
+}
+
+/* Flashcard Transition */
+.flashcard.fade-out {
+    opacity: 0;
+}
+
+/* Correct/Incorrect Feedback Styling */
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}

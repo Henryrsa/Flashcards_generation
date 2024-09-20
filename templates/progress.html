@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Progress</h1>
+        <div class="progress-tracking">
+            {% for flashcard in flashcards %}
+                <div class="progress-item {% if flashcard[0] in answered_questions %}answered{% endif %}">
+                    {{ flashcard[0] }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

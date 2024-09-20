@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Flashcard Quiz</h1>
+
+        <!-- Flashcard container -->
+        <div class="flashcard">
+            <p><strong>Question {{ current_question_index }} of {{ total_questions }}</strong></p>
+            <p><strong>Mistake Type:</strong> {{ flashcard[1] }}</p>
+            <p><strong>Original Sentence:</strong> {{ flashcard[2] }}</p>
+
+            <form action="{{ url_for('quiz') }}" method="POST">
+                <input type="text" name="user_answer" placeholder="Enter your correction" required>
+
+                <!-- Hidden fields to pass the correct answer and flashcard data -->
+                <input type="hidden" name="correct_answer" value="{{ flashcard[3] }}">
+                <input type="hidden" name="question_id" value="{{ flashcard[0] }}">
+                <input type="hidden" name="mistake_type" value="{{ flashcard[1] }}">
+                <input type="hidden" name="original_sentence" value="{{ flashcard[2] }}">
+
+                <div class="buttons">
+                    <button type="submit" class="next-btn">Submit</button>
+                    <a href="{{ url_for('flashcards_review') }}" class="finish-btn">Review Answers</a>
+                </div>
+            </form>
+
+            <div class="flash-messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert feedback-msg {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+
+        <!-- Progress Tracker (outside flashcard) -->
+        <div class="progress-tracking">
+            <p>Progress:</p>
+            {% for i in range(1, total_questions + 1) %}
+                <div class="progress-item {% if i <= current_question_index %}answered{% endif %}">{{ i }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
